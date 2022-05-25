@@ -1,4 +1,4 @@
 [core]
-    remote = myremote
-['remote "myremote"']
-    url = gdrive://1TJbz6syI6SiCFR9Y8IFHIYxex9q46w3B
+    remote = azure_ac
+['remote "azure_ac"']
+    url = azure://dvcazurecontainer/Mlops-Samples/Datasets
