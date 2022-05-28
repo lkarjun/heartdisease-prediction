@@ -8,6 +8,7 @@ dvc = {extras = ["azure"], version = "*"}
 scikit-learn = "*"
 pandas = "*"
 seaborn = "*"
+streamlit = "*"
 
 [dev-packages]
 ipykernel = "*"
