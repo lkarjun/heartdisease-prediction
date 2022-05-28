@@ -1,4 +1,4 @@
 outs:
-- md5: f7d6ba5077f9beb1223bc7d4c5f8e52c
-  size: 1083388
+- md5: 0863d4531b0eedcac135a5016cdc860f
+  size: 992673
   path: heartdisease_indicator_test.csv
