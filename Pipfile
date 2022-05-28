@@ -7,6 +7,7 @@ name = "pypi"
 dvc = {extras = ["azure"], version = "*"}
 scikit-learn = "*"
 pandas = "*"
+seaborn = "*"
 
 [dev-packages]
 ipykernel = "*"
