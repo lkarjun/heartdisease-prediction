@@ -1,5 +1,9 @@
 from sklearn.base import TransformerMixin
 
+COLUMNS = ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth',
+           'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Diabetic',
+           'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease',
+           'SkinCancer']
 
 REPLACE_VALUES = {
                   'Smoking': {'No':0,'Yes':1}, 

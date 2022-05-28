@@ -1,4 +1,5 @@
-from sklearn.metrics import ConfusionMatrixDisplay, classification_report
+from sklearn.metrics import roc_auc_score, accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from preprocess import PreProcess
@@ -6,6 +7,8 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import pandas as pd
 import joblib
+
+METRICS = {'Dataset': ['Training', 'Testing']}
 
 ## STATIC PATHS
 TARGET = "HeartDisease"
@@ -44,7 +47,31 @@ model.fit(X_train, Y_train)
 print("Model Fit...✅")
 
 ## PREDICTION
-y_pred = model.predict(X_test)
+Y_train_preds = model.predict(X_train)
+Y_test_preds = model.predict(X_test)
+
+METRICS['Accuracy'] = [round(accuracy_score(Y_train, Y_train_preds), 2), 
+                       round(accuracy_score(Y_test, Y_test_preds), 2)]
+
+METRICS['Precision'] = [round(precision_score(Y_train, Y_train_preds), 2), 
+                       round(precision_score(Y_test, Y_test_preds), 2)]
+
+METRICS['Recall'] = [round(recall_score(Y_train, Y_train_preds), 2), 
+                       round(recall_score(Y_test, Y_test_preds), 2)]
+
+METRICS['F1-Score'] = [round(f1_score(Y_train, Y_train_preds), 2), 
+                       round(f1_score(Y_test, Y_test_preds), 2)]
+
+METRICS['ROU-AUC-SCORE'] = [round(roc_auc_score(Y_train, Y_train_preds), 2), 
+                            round(roc_auc_score(Y_test, Y_test_preds), 2)]
+
+## SAVE METRICS
+
+with open(ASSEST_DIR/'metrics.md', "w") as file:
+    scores = pd.DataFrame(METRICS).to_markdown()
+    file.write(scores)
+
+print("Save Metrics...✅")
 
 ## VALIDATION
 ConfusionMatrixDisplay.from_estimator(model, X_test, Y_test)
