@@ -9,6 +9,8 @@ scikit-learn = "*"
 pandas = "*"
 seaborn = "*"
 streamlit = "*"
+install = "*"
+streamlit-option-menu = "*"
 
 [dev-packages]
 ipykernel = "*"
