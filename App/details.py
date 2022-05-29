@@ -1,11 +1,12 @@
 import streamlit as st
-from Models.model.inference import Inference, __version__, MODEL_DIR
+from Models.model.inference import Inference
+from Models.model import  __version__,__tag__, MODEL_DIR
 
 ASSESTS_DIR = MODEL_DIR/'Assests'
 
 def main():
 
-    st.markdown(f"<h2 style='text-align: left;'>Model Version: '{__version__}'</h2>", True)
+    st.markdown(f"<h2 style='text-align: left;'>Model Version: '{__version__}:{__tag__}'</h2>", True)
 
     rslt = st.empty()
     if rslt.button("Load Latest Model"):
