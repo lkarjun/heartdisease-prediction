@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import streamlit.components.v1 as html
 from st_aggrid import AgGrid
-from App import home
+from App import home, details, contacts, about
 import os
 
 ### Env
@@ -14,7 +14,7 @@ st.set_page_config(page_title="HeartDisease", page_icon="💕",
 
 with st.sidebar:
     choose = option_menu("Application", 
-                        ["Home", "Details", "About", "Contact"],
+                        ["Home", "Details", "About Project", "About Me"],
                          icons = ['house', 'journal-code', 'kanban', 'book','person lines fill'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
@@ -26,6 +26,6 @@ with st.sidebar:
 
 match choose:
     case "Home": home.home()
-    case "Details": st.write("Coming Soon😊")
-    case "About": st.write("Coming Soon😊")
-    case "Contact": st.write("Coming Soon😊")
+    case "Details": details.main()
+    case "About Project": about.main()
+    case "About Me": contacts.main()

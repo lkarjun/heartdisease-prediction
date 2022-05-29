@@ -84,7 +84,7 @@ def collect_data():
     data = {}
     status = False
     form_head = st.empty()
-    form_head.markdown(f"<h4 style='text-align: center;'>Enter Details to Check HeartDiseases</h4>", True)
+    form_head.markdown(f"<h4 style='text-align: center;'>Enter Details to Check HeartDisease</h4>", True)
     form = st.empty()
     status, data = form_section(form)
     if status:
