@@ -1,10 +1,11 @@
 import requests
 import streamlit as st
 import requests
+from pathlib import Path
+
+readme_file = Path(__file__).resolve().parent.parent/'readme.md'
 
 def main():
-    link = "https://raw.githubusercontent.com/lkarjun/heartdisease-prediction/master/readme.md?token=GHSAT0AAAAAABUAR3NCOCNVL2E3YG4OMPI6YUTRZUA"
-    data = requests.get(link).text
-    st.markdown(data, True)
+    st.markdown(readme_file.read_text('utf-8'), True)
 
 
