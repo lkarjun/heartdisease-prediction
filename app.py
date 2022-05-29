@@ -19,8 +19,14 @@ with st.spinner('Loading Model...'):
 
 st.markdown(f"<h6 style='text-align: left;'>v {infr.version}</h6>", True)
 
+rslt = st.empty()
+
+if rslt.button("Load Latest Model"):
+    infr._pull_model()
+    infr._load_model()
+    rslt.empty()
+
 if not infr.failed:
-    rslt = st.empty()
 
     col1, col2 = st.columns(2)
 
