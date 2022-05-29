@@ -1,5 +1,6 @@
 import streamlit as st
 from Models.model.inference import Inference
+from Models.model.preprocess import COLUMNS
 import pandas as pd
 from time import sleep
 
@@ -96,7 +97,8 @@ def write_prediction(rslt, data, infr):
     sleep(1)
     username = data['Name']
     data.pop('Name')
-    pred = infr.predict(pd.DataFrame(data))
+    df = pd.DataFrame(data)
+    pred = infr.predict(df[COLUMNS])
     predictions = pred['predictions']
     if pred['label'] == 'Yes':
         st.snow()
