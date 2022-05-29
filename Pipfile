@@ -7,13 +7,13 @@ name = "pypi"
 dvc = {extras = ["azure"], version = "*"}
 scikit-learn = "*"
 pandas = "*"
-seaborn = "*"
 streamlit = "*"
-install = "*"
 streamlit-option-menu = "*"
+streamlit-aggrid = "*"
 
 [dev-packages]
 ipykernel = "*"
+seaborn = "*"
 
 [requires]
 python_version = "3.10"
