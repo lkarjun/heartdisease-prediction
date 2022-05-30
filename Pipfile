@@ -10,6 +10,7 @@ pandas = "*"
 streamlit = "*"
 streamlit-option-menu = "*"
 streamlit-aggrid = "*"
+matplotlib = "*"
 
 [dev-packages]
 ipykernel = "*"
