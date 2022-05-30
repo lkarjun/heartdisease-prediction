@@ -24,8 +24,4 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "## Retrain Model Metrics" >> report.md
-          cat Models/model/Assests/metrics.md >> report.md
-          echo "## Retrain Model Confusion Metix" >> report.md
-          cml-publish Models/model/Assests/confusion_matrix.png --md >> report.md
-          cml send-comment report.md
+          cml send-comment metrics.md
