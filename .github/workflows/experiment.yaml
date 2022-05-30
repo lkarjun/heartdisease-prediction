@@ -35,3 +35,4 @@ jobs:
           echo "## Retrain Model Confusion Metix" >> report.md
           cml-publish Models/model/Assests/confusion_matrix.png --md >> report.md
           cml send-comment report.md
+          cml send-github-check report.md
