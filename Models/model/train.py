@@ -40,7 +40,7 @@ print("Data Preprocess...✅")
 
 
 ## MODELING
-model = RandomForestClassifier(n_estimators=50, max_depth=10, random_state=42)
+model = RandomForestClassifier(n_estimators=50, max_depth=10, random_state=23)
 
 model.fit(X_train, Y_train)
 
