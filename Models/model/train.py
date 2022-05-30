@@ -9,6 +9,7 @@ import pandas as pd
 import joblib
 
 METRICS = {'Dataset': ['Training', 'Testing']}
+RANDOM_SEED = 42
 
 ## STATIC PATHS
 TARGET = "HeartDisease"
@@ -40,7 +41,7 @@ print("Data Preprocess...✅")
 
 
 ## MODELING
-model = RandomForestClassifier(n_estimators=50, max_depth=10, random_state=42)
+model = RandomForestClassifier(n_estimators=50, max_depth=10, random_state=RANDOM_SEED)
 
 model.fit(X_train, Y_train)
 
