@@ -14,8 +14,11 @@ def main_title():
 
     rslt = st.empty()
     if rslt.button("Load Latest Model"):
-        infr._pull_model()
-        infr._load_model()
+        rslt.empty()
+        with st.spinner("Updating Latest Model..."):
+            infr = Inference()
+            infr._pull_model()
+            infr._load_model()
         rslt.success('Updated Model')
     st.write('---')
     return infr
