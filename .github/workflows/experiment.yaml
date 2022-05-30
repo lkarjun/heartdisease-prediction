@@ -1,5 +1,5 @@
 name: experiments
-on: 
+on:
   pull_request:
     branches:
       - experiments
