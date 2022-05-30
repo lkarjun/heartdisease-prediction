@@ -18,8 +18,13 @@ jobs:
           pip install pipenv
           pipenv sync
       - name: Retrain model
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
         run: |
           # Your ML workflow goes here
+          pipenv run dvc pull Dataset/heartdisease_indicator_test.csv.dvc 
+          pipenv run dvc pull Dataset/heartdisease_indicator_train.csv.dvc
           pipenv run python Models/model/train.py
       - name: Write CML report
         env:
