@@ -7,7 +7,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: iterative/setup-cml@v1
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
@@ -33,5 +33,5 @@ jobs:
           echo "## Retrain Model Metrics" >> report.md
           cat Models/model/Assests/metrics.md >> report.md
           echo "## Retrain Model Confusion Metix" >> report.md
-          cml-publish Model/model/Assests/confusion_matrix.png --md >> report.md
+          cml-publish Models/model/Assests/confusion_matrix.png --md >> report.md
           cml send-comment report.md
