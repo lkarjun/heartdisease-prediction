@@ -8,6 +8,7 @@ from pathlib import Path
 import pandas as pd
 import joblib
 
+SEED = 4232
 METRICS = {'Dataset': ['Training', 'Testing']}
 
 ## STATIC PATHS
@@ -40,7 +41,7 @@ print("Data Preprocess...✅")
 
 
 ## MODELING
-model = RandomForestClassifier(n_estimators=50, max_depth=10, random_state=42)
+model = RandomForestClassifier(n_estimators=23, max_depth=5, random_state=SEED)
 
 model.fit(X_train, Y_train)
 
