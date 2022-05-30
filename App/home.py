@@ -10,7 +10,7 @@ def main_title():
     with st.spinner('Loading Model...'):
         infr = Inference()
 
-    st.markdown(f"<h6 style='text-align: left;'>v {infr.version}</h6>", True)
+    st.markdown(f"<h6 style='text-align: left;'>&emsp;v {infr.version}</h6>", True)
 
     rslt = st.empty()
     if rslt.button("Load Latest Model"):
