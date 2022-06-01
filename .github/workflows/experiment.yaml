@@ -11,25 +11,13 @@ jobs:
       - name: "Read Metrics"
         run: |
           OUTPUT=$(cat Models/model/Assests/metrics.md)
-          echo "MESSAGE=$OUTPUT" >> $GITHUB_ENV
+          echo 'MESSAGE<<EOF' >> $GITHUB_ENV
+          echo  "$OUTPUT"  >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+          
       - uses: mshick/add-pr-comment@v1
         with:
           message: ${{ env.MESSAGE }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
-          allow-repeats: false # This is the default
-      # - uses: iterative/setup-cml@v1
-      # - uses: actions/setup-python@v2
-        # with:
-        #   python-version: '3.10.4'
-      # - name: Package Installing
-      #   run: |
-      #     pip install -r requirements.txt
-      # - name: Retrain model
-      #   run: |
-      #     python Models/model/train.py
-      # - name: Write CML report
-      #   env:
-      #     REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   run: |
-      #     cml send-comment Models/model/Assests/metrics.md
+          repo-token-user-login: 'github-actions[bot]'
+          allow-repeats: false
