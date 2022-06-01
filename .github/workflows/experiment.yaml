@@ -18,7 +18,7 @@ jobs:
           IMAGE=$( base64 Models/model/Assests/confusion_matrix.png )
           IMAGE_DATA="<img src='data:image/png;base64, ${IMAGE}' />"
           echo $IMAGE_DATA >> report.md
-          OUTPUT=$(cat Models/model/Assests/report.md)
+          OUTPUT=$(cat report.md)
 
           echo 'MESSAGE<<EOF' >> $GITHUB_ENV
           echo  "$OUTPUT"  >> $GITHUB_ENV
