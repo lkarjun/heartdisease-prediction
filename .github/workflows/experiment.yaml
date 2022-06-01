@@ -11,11 +11,7 @@ jobs:
       - name: "Read Metrics"
         run: |
         
-          echo "## Metrics" >> report.md
-          METRICS=$(cat Models/model/Assests/metrics.md)
-          echo $METRICS >> report.md
-          OUTPUT=$(cat report.md)
-          
+          OUTPUT=$(cat Models/model/Assests/metrics.md)
           echo "MESSAGE=$OUTPUT" >> $GITHUB_ENV
           echo 'MESSAGE<<EOF' >> $GITHUB_ENV
           echo  "$OUTPUT"  >> $GITHUB_ENV
