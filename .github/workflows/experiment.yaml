@@ -10,10 +10,21 @@ jobs:
       - uses: actions/checkout@v2
       - name: "Read Metrics"
         run: |
-          OUTPUT=$(cat Models/model/Assests/metrics.md)
+        
+          echo "## Metrics" >> report.md
+          METRICS=$(cat Models/model/Assests/metrics.md)
+          echo $METRICS >> report.md
+          echo "## Confustion Matrics" >> report.md
+          IMAGE=$( base64 Models/model/Assests/confusion_matrix.png )
+          IMAGE_DATA="<img src='data:image/png;base64, ${IMAGE}' />"
+          echo $IMAGE_DATA >> report.md
+          OUTPUT=$(cat Models/model/Assests/report.md)
+
           echo 'MESSAGE<<EOF' >> $GITHUB_ENV
           echo  "$OUTPUT"  >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
+          echo "MESSAGE=$OUTPUT" >> $GITHUB_ENV
+          
       - uses: mshick/add-pr-comment@v1
         with:
           message: ${{ env.MESSAGE }}
