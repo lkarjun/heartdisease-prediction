@@ -13,8 +13,12 @@ jobs:
         
           echo "## Metrics" >> report.md
           METRICS=$(cat Models/model/Assests/metrics.md)
+          echo $METRICS >> report.md
+#           echo "## Confustion Matrics" >> report.md
+#           IMAGE=$( base64 Models/model/Assests/confusion_matrix.png )
+#           IMAGE_DATA="<img src='data:image/png;base64, ${IMAGE}' />"
+#           echo $IMAGE_DATA >> report.md
           
-          echo $IMAGE_DATA >> report.md
           OUTPUT=$(cat report.md)
 
           echo 'MESSAGE<<EOF' >> $GITHUB_ENV
