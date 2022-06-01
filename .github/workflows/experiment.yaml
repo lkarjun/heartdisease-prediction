@@ -19,7 +19,7 @@ jobs:
           echo $IMAGE_DATA >> report.md
           cat report.md
         
-          OUTPUT=$(cat Models/model/Assests/metrics.md)
+          OUTPUT=$(cat report.md)
           echo 'MESSAGE<<EOF' >> $GITHUB_ENV
           echo  "$OUTPUT"  >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
