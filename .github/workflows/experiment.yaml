@@ -9,13 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: mshick/add-pr-comment@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          out="$(cat Models/model/Assests/metrics.md)"
         with:
           message: |
-            **Hello**
-            🌏
-            !
+            echo "$out"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
           allow-repeats: false # This is the default
