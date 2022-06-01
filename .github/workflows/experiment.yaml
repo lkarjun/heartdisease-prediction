@@ -15,11 +15,11 @@ jobs:
           METRICS=$(cat Models/model/Assests/metrics.md)
           echo $METRICS >> report.md
           OUTPUT=$(cat report.md)
-
+          
+          echo "MESSAGE=$OUTPUT" >> $GITHUB_ENV
           echo 'MESSAGE<<EOF' >> $GITHUB_ENV
           echo  "$OUTPUT"  >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
-          echo "MESSAGE=$OUTPUT" >> $GITHUB_ENV
           
       - uses: mshick/add-pr-comment@v1
         with:
