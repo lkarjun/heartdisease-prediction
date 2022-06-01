@@ -1,6 +1,6 @@
 name: experiments
 on: 
-  pull_request_target:
+  pull_request:
     branches:
       - experiments
 jobs:
@@ -8,18 +8,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: iterative/setup-cml@v1
-      - uses: actions/setup-python@v2
+      - uses: mshick/add-pr-comment@v1
         with:
-          python-version: '3.10.4'
-      - name: Package Installing
-        run: |
-          pip install -r requirements.txt
-      - name: Retrain model
-        run: |
-          python Models/model/train.py
-      - name: Write CML report
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          cml send-comment Models/model/Assests/metrics.md
+          message: |
+            **Hello**
+            🌏
+            !
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+          allow-repeats: false # This is the default
+      # - uses: iterative/setup-cml@v1
+      # - uses: actions/setup-python@v2
+        # with:
+        #   python-version: '3.10.4'
+      # - name: Package Installing
+      #   run: |
+      #     pip install -r requirements.txt
+      # - name: Retrain model
+      #   run: |
+      #     python Models/model/train.py
+      # - name: Write CML report
+      #   env:
+      #     REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: |
+      #     cml send-comment Models/model/Assests/metrics.md
