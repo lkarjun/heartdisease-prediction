@@ -7,27 +7,19 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - uses: iterative/setup-cml@v1
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v3
+      - uses: actions/setup-python@v2
         with:
-          python-version: "3.10.4"
-      - name: Python Env Setup
+          python-version: '3.10.4'
+      - name: Package Installing
         run: |
-          pip install pipenv
-          pipenv sync
+          pip install -r requirements.txt
       - name: Retrain model
         run: |
-          # Your ML workflow goes here
-          pipenv run python Models/model/train.py
+          python Models/model/train.py
       - name: Write CML report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "## Retrain Model Metrics" >> report.md
-          cat Models/model/Assests/metrics.md >> report.md
-          echo "## Retrain Model Confusion Metix" >> report.md
-          cml-publish Models/model/Assests/confusion_matrix.png --md >> report.md
-          cml send-comment report.md
-          cml send-github-check report.md
+          cml send-comment Models/model/Assests/metrics.md
