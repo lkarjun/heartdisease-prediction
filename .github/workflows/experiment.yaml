@@ -10,10 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: "Read Metrics"
         run: |
-          echo "## Metrics" >> report.md
-          METRICS=$(cat Models/model/Assests/metrics.md)
-          echo $METRICS >> report.md
-          OUTPUT=$(cat report.md)
+          OUTPUT=$(cat Models/model/Assests/metrics.md)
           echo 'MESSAGE<<EOF' >> $GITHUB_ENV
           echo  "$OUTPUT"  >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
