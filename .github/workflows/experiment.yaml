@@ -1,6 +1,6 @@
 name: experiments
 on: 
-  pull_request:
+  pull_request_target:
     branches:
       - experiments
 jobs:
