@@ -8,6 +8,7 @@ from pathlib import Path
 import pandas as pd
 import joblib
 
+SEED = 23
 METRICS = {'Dataset': ['Training', 'Testing']}
 
 ## STATIC PATHS
