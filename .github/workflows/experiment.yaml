@@ -11,7 +11,9 @@ jobs:
       - name: "Read Metrics"
         run: |
           OUTPUT=$(cat Models/model/Assests/metrics.md)
-          echo "MESSAGE=$OUTPUT" >> $GITHUB_ENV
+          echo 'MESSAGE<<EOF' >> $GITHUB_ENV
+          echo  "$OUTPUT"  >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
       - uses: mshick/add-pr-comment@v1
         with:
           message: ${{ env.MESSAGE }}
