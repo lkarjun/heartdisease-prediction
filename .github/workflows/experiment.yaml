@@ -8,10 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: "Read Metrics"
+        run: |
+          OUTPUT=$(cat Models/model/Assests/metrics.md)
+          echo "MESSAGE=$OUTPUT" >> $GITHUB_ENV
       - uses: mshick/add-pr-comment@v1
         with:
-          message: |
-            cat Models/model/Assests/metrics.md
+          message: ${{ env.MESSAGE }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
           allow-repeats: false # This is the default
