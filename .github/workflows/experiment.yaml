@@ -14,6 +14,13 @@ jobs:
       - name: Package Installing
         run: |
           pip install -r requirements.txt
+      - name: Downloading Dataset
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          dvc pull Dataset/heartdisease_indicator_test.csv.dvc
+          dvc pull Dataset/heartdisease_indicator_train.csv.dvc
       - name: Retrain model
         run: |
           python Models/model/train.py
