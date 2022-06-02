@@ -12,6 +12,8 @@ End-to-End · Machine Learning · Project
   </a>
   &nbsp;
   <img src="https://img.shields.io/github/pipenv/locked/python-version/lkarjun/heartdisease-prediction?style=flat" alt="Streamlit App">
- 
+ &nbsp;
+  <img src="https://img.shields.io/badge/status-developing-brightgreen?style=flat" alt="Streamlit App">
+
 </div>
 
