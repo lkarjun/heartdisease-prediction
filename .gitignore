@@ -3,4 +3,4 @@ secrets.toml
 app copy.py
 cml.yaml
 
-model/reasourses/*
+model/resources/*
