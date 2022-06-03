@@ -13,3 +13,4 @@ with open(MODEL_DIR/'info.json', 'r') as version:
     __tag__ = __meta__['tag']
     __latest_run_id__ = __meta__['run_id']
     __experiment_id__ = __meta__['experiment_id']
+    __updated_time__ = __meta__['updated_time']
