@@ -4,3 +4,4 @@ app copy.py
 cml.yaml
 
 model/resources/*
+model/test.ipynb
