@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 MODEL_DIR = Path(__file__).resolve().parent
-DATASET_DIR = Path(__file__).resolve().parent.parent.parent/'Dataset'
+DATASET_DIR = Path(__file__).resolve().parent.parent.parent/'dataset'
 TRACKING_URI = Path(__file__).resolve().parent/'model_tracking'
 TRAIN = "heartdisease_indicator_train.csv"
 VALIDATION = "heartdisease_indicator_t.csv"

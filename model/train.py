@@ -11,7 +11,7 @@ METRICS = {'Dataset': ['Training', 'Testing']}
 ## STATIC PATHS
 TARGET = "HeartDisease"
 ASSEST_DIR = Path(__file__).resolve().parent/'resources'
-DATASET_DIR = Path(__file__).resolve().parent.parent/'Dataset'
+DATASET_DIR = Path(__file__).resolve().parent.parent/'dataset'
 
 def get_preprocessed_data():
 
