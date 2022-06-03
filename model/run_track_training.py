@@ -34,10 +34,12 @@ def save_info(run, experiment_id):
     run_id = run.info.run_id
     run = mlflow.get_run(run_id)
     tags = run.data.tags
+    updated_time = json.loads(tags['mlflow.log-model.history'])[0]['utc_time_created']
     data = {'run_id': run_id, 
             'tag': tags['model_tag'], 
             'version': tags['model_version'],
-            'experiment_id': experiment_id}
+            'experiment_id': experiment_id,
+            'updated_time': updated_time}
     with open('model/info.json', 'w') as fp:
         json.dump(data, fp)
     print(f"Save Info...✅")
