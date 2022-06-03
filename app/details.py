@@ -1,13 +1,18 @@
 import streamlit as st
-from Models.model.inference import Inference
-from Models.model import  __version__,__tag__, MODEL_DIR
+from model.inference import Inference
+from model import  __version__,__tag__, TRACKING_URI, __experiment_id__, __latest_run_id__, __updated_time__
+from datetime import datetime
 
-ASSESTS_DIR = MODEL_DIR/'Assests'
+update_date_time = datetime.strptime(__updated_time__, '%Y-%m-%d %H:%M:%S.%f').replace(microsecond=0)
+
+
+ASSESTS_DIR = TRACKING_URI/f"{__experiment_id__}/{__latest_run_id__}/artifacts/resources"
 
 def main():
 
     st.markdown(f"<h2 style='text-align: left;'>Model Version: '{__version__}:{__tag__}'</h2>", True)
-
+    st.write(f"Model run_id: {__latest_run_id__}")
+    st.write(f"Last updated: {update_date_time}")
     rslt = st.empty()
     if rslt.button("Load Latest Model"):
         rslt.empty()
@@ -25,6 +30,6 @@ def main():
     st.markdown("<br>", True)
     st.subheader(f"Confusion Metrics of Model")
 
-    image = (ASSESTS_DIR/'confusion_matrix.png').read_bytes()
+    image = (ASSESTS_DIR/'Confusion-Matrix.png').read_bytes()
     st.image(image, use_column_width ='auto')
 

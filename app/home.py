@@ -1,6 +1,6 @@
 import streamlit as st
-from Models.model.inference import Inference
-from Models.model.preprocess import COLUMNS
+from model.inference import Inference
+from model.preprocess import COLUMNS
 import pandas as pd
 from time import sleep
 
