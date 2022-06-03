@@ -14,7 +14,7 @@ st.set_page_config(page_title="HeartDisease", page_icon="💕",
 
 with st.sidebar:
     choose = option_menu("Application", 
-                        ["Home", "Details", "Track Model", "About Project", "About Me"],
+                        ["Home", "Details", "Track Models", "About Project", "About Me"],
                          icons = ['house', 'journal-code', 'kanban', 'book','person lines fill'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
@@ -27,6 +27,6 @@ with st.sidebar:
 match choose:
     case "Home": st.write("Soon")
     case "Details": details.main()
-    case "Track Model": track_model.main()
+    case "Track Models": track_model.main()
     case "About Project": about.main()
     case "About Me": contacts.main()

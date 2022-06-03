@@ -11,16 +11,16 @@ ASSESTS_DIR = TRACKING_URI/f"{__experiment_id__}/{__latest_run_id__}/artifacts/r
 def main():
 
     st.markdown(f"<h2 style='text-align: left;'>Model Version: '{__version__}:{__tag__}'</h2>", True)
-    st.write(f"Model run_id: {__latest_run_id__}")
-    st.write(f"Last updated: {update_date_time}")
-    rslt = st.empty()
-    if rslt.button("Load Latest Model"):
-        rslt.empty()
-        with st.spinner("Updating Latest Model..."):
-            infr = Inference()
-            infr._pull_model()
-            infr._load_model()
-        rslt.success('Updated Model')
+    st.write(f"Model Run ID: {__latest_run_id__}")
+    st.write(f"Last Updated: {update_date_time}")
+    # rslt = st.empty()
+    # if rslt.button("Load Latest Model"):
+    #     rslt.empty()
+    #     with st.spinner("Updating Latest Model..."):
+    #         infr = Inference()
+    #         infr._pull_model()
+    #         infr._load_model()
+    #     rslt.success('Updated Model')
 
     col1, col2 = st.columns(2)
     metrics = (ASSESTS_DIR/'metrics.md').read_text()
