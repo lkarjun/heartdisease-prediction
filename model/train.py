@@ -42,7 +42,7 @@ def train():
     X_train, Y_train, X_test, Y_test = get_preprocessed_data()
 
     ## MODELING
-    model = RandomForestClassifier(n_estimators=70, max_depth=5, random_state=2390)
+    model = RandomForestClassifier(n_estimators=70, max_depth=5, random_state=2390, max_features='log2')
     model.fit(X_train, Y_train)
     print("Model Fit...✅")
     ## PREDICTION
@@ -88,7 +88,7 @@ def train():
                    'model': model,
                    'tags': {'estimator_name': type(model).__name__,
                             'model_tag': "BaseLine",
-                            'model_version': "0.0.1"
+                            'model_version': "0.1.0"
                             }
                    }
 
