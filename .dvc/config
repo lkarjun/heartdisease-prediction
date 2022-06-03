@@ -1,4 +1,6 @@
 [core]
-    remote = azure_ac
-['remote "azure_ac"']
+    remote = dataset
+['remote "dataset"']
     url = azure://dvcazurecontainer/Mlops-Samples/Datasets
+['remote "models"']
+    url = azure://dvcazurecontainer/HeartDisease/models
