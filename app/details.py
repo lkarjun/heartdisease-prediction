@@ -1,6 +1,6 @@
 import streamlit as st
 from model.inference import Inference
-from model import  __version__,__tag__, TRACKING_URI, __experiment_id__, __latest_run_id__, __updated_time__
+from model import  __version__, __tag__, TRACKING_URI, __experiment_id__, __latest_run_id__, __updated_time__
 from datetime import datetime
 
 update_date_time = datetime.strptime(__updated_time__, '%Y-%m-%d %H:%M:%S.%f').replace(microsecond=0)
@@ -10,7 +10,7 @@ ASSESTS_DIR = TRACKING_URI/f"{__experiment_id__}/{__latest_run_id__}/artifacts/r
 
 def main():
 
-    st.markdown(f"<h2 style='text-align: left;'>Model Version: '{__version__}:{__tag__}'</h2>", True)
+    st.markdown(f"<h2 style='text-align: left;'>Model Version: '{__version__} : {__tag__}'</h2>", True)
     st.write(f"Model Run ID: {__latest_run_id__}")
     st.write(f"Last Updated: {update_date_time}")
     # rslt = st.empty()

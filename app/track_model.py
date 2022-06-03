@@ -30,7 +30,7 @@ def write_time_line(runs: list, end: int = 0):
         data = get_info(run.run_id)
         ASSESTS_DIR = TRACKING_URI/f"{__experiment_id__}/{run.run_id}/artifacts/resources"
 
-        st.write(f'Run ID: {data["run_id"]}')
+        st.markdown(f"<h6 style='text-align: left; color: green'>Run ID: {data['run_id']}</h6>", True)
         col1, col2 = st.columns(2)
         with col1:
             st.write(f"Date: {data['updated_time'].date()}")
@@ -50,7 +50,7 @@ def write_time_line(runs: list, end: int = 0):
 
         st.write('---')
 def main():
-    st.markdown(f"<h2 style='text-align: left;'>Model Timeline 🫀</h2>", True)
+    st.markdown(f"<h2 style='text-align: Center;'>Model Timeline 🫀</h2>", True)
     
     with st.spinner("Loading..."):
         full_runs = get_run_info()
