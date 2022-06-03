@@ -20,7 +20,7 @@ def form_section(form):
             col1, col2 = st.columns(2)
 
             with col1:
-                name_ = st.text_input("Enter You're Name 🦸‍♂️", value="User Name")
+                name_ = st.text_input("Enter You're Name 🦸‍♂️", value="User")
                 height = st.number_input("Your Height(cm)🧍", min_value=4)
             with col2:
                 age = st.selectbox("Choose Age Group 👩‍🦲", ('18-24','25-29','30-34','35-39', '40-44','45-49',
@@ -32,17 +32,17 @@ def form_section(form):
             col1_, col2_ = st.columns(2)
 
             with col1_:
-                drink = st.selectbox("Do You Drink 🍾",('Yes', 'No'))
-                asthma = st.selectbox("Do You Have Asthma🫁",('Yes', 'No'))
+                drink = st.selectbox("Do You Drink 🍾",('No', 'Yes'))
+                asthma = st.selectbox("Do You Have Asthma🫁",('No', 'Yes'))
                 diabetics = st.selectbox("Are You Diabetic 🍬", ('Yes', 'No'))
                 sleeptime = st.number_input("Your avg sleep time 😴", min_value=3)
                 mental_health = st.number_input("You're Mental Health❤️‍🩹", min_value=0, max_value=30)
-                skin_cancer = st.selectbox("Do You Have Skin Cancer🤚",('Yes', 'No'))
+                skin_cancer = st.selectbox("Do You Have Skin Cancer🤚",('No', 'Yes'))
             with col2_:
                 smoke = st.selectbox("Do You Smoke 🚭",('Yes', 'No'))
-                stroke = st.selectbox("Do You Have Stroke💔",('Yes', 'No'))
+                stroke = st.selectbox("Do You Have Stroke💔",('No', 'Yes'))
                 diffwalking = st.selectbox("Do You Have DiffWalking 🚶", ('Yes', 'No'))
-                kidney_disease = st.selectbox("Do You Have Kindney Diseases🤚",('Yes', 'No'))
+                kidney_disease = st.selectbox("Do You Have Kindney Diseases🤚",('No', 'Yes'))
                 physical_health = st.number_input("You're Physical Health ❤️‍🩹🏃‍♀️", max_value=30)
                 physical_activity = st.selectbox("Are You PhysicalActivity 🏃‍♀️",('Yes', 'No'))
 
@@ -95,17 +95,20 @@ def write_prediction(rslt, data, infr):
     pred = infr.predict(df[COLUMNS])
     st.write(pred)
     predictions = pred['predictions']
-    if pred['label'] == 'Yes':
+    if pred['predicted'] == 'Yes':
         st.snow()
         rslt.subheader(f"{username}! There is an {round(predictions['Yes'] * 100)}% Chance you have Heart Disease😔 Please ping with doctor🧑‍⚕️")
     else:
-        rslt.subheader(f"Hurray💕, Your You Don't Have HeartDiseases😊Stay Healthy🏃‍♀️")
+        rslt.subheader(f"Hurray💕, {round(predictions['No'] * 100)}% Sure You Don't Have HeartDiseases😊Stay Healthy🏃‍♀️")
         st.balloons()
 
 def home():
     infr = main_title()
     prediciton_rslt = st.empty()
     status, data = collect_data()
-    if status:write_prediction(prediciton_rslt, data, infr)
+    if status:
+        write_prediction(prediciton_rslt, data, infr)
+        if st.button("Show Form"):
+            home()
         
     

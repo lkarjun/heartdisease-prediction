@@ -29,10 +29,10 @@ class Inference:
         pred = self.model.predict_proba(data)
         pred = pred.flatten()
         accurate_prediciton = self.c[np.argmax(pred)]
-        prediction = {"__version__": self.version,
-                      "__run_id__": self.model_run_id,
+        prediction = {"version": self.version,
+                      "run_id": self.model_run_id,
                       "predictions": {'No': pred[0], 'Yes': pred[1]},
-                      "label": accurate_prediciton}
+                      "predicted": accurate_prediciton}
         return prediction
 
     def _load_model(self):
