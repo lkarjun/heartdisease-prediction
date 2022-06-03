@@ -25,7 +25,7 @@ with st.sidebar:
     )
 
 match choose:
-    case "Home": st.write("Soon")
+    case "Home": home.home()
     case "Details": details.main()
     case "Track Models": track_model.main()
     case "About Project": about.main()

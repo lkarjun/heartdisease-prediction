@@ -11,7 +11,7 @@ ASSESTS_DIR = TRACKING_URI/f"{__experiment_id__}/{__latest_run_id__}/artifacts/r
 def main():
 
     st.markdown(f"<h2 style='text-align: left;'>Model Version: '{__version__} : {__tag__}'</h2>", True)
-    st.write(f"Model Run ID: {__latest_run_id__}")
+    st.markdown(f"<h6 style='text-align: left; color: green'>Model Run ID: {__latest_run_id__}</h6>", True)
     st.write(f"Last Updated: {update_date_time}")
     # rslt = st.empty()
     # if rslt.button("Load Latest Model"):

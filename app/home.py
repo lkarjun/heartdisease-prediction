@@ -11,15 +11,6 @@ def main_title():
         infr = Inference()
 
     st.markdown(f"<h6 style='text-align: left;'>&emsp;v {infr.version}</h6>", True)
-
-    rslt = st.empty()
-    if rslt.button("Load Latest Model"):
-        rslt.empty()
-        with st.spinner("Updating Latest Model..."):
-            infr = Inference()
-            infr._pull_model()
-            infr._load_model()
-        rslt.success('Updated Model')
     st.write('---')
     return infr
 
@@ -30,12 +21,12 @@ def form_section(form):
 
             with col1:
                 name_ = st.text_input("Enter You're Name 🦸‍♂️", value="User Name")
-                height = st.number_input("Your Height(cm)🧍")
+                height = st.number_input("Your Height(cm)🧍", min_value=4)
             with col2:
                 age = st.selectbox("Choose Age Group 👩‍🦲", ('18-24','25-29','30-34','35-39', '40-44','45-49',
                                                 '50-54','55-59','60-64','65-69','70-74', '75-79',
                                                 '80 or older'))
-                weight = st.number_input("Your Weight(kg)🚶‍♂️")
+                weight = st.number_input("Your Weight(kg)🚶‍♂️", min_value=5)
                 bmi_ = 0 if height == 0 or weight == 0 else round(weight / (height/100)**2, 2)
             
             col1_, col2_ = st.columns(2)
@@ -102,6 +93,7 @@ def write_prediction(rslt, data, infr):
     data.pop('Name')
     df = pd.DataFrame(data)
     pred = infr.predict(df[COLUMNS])
+    st.write(pred)
     predictions = pred['predictions']
     if pred['label'] == 'Yes':
         st.snow()
