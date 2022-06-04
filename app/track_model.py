@@ -3,7 +3,6 @@ from model import __experiment_id__, TRACKING_URI
 import mlflow
 import json
 from datetime import datetime
-from annotated_text import annotated_text, annotation
 
 mlflow.set_tracking_uri(f"file:/{TRACKING_URI.absolute()}")
 experiment = mlflow.set_experiment(experiment_id=__experiment_id__)
