@@ -19,14 +19,21 @@ jobs:
           AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
           AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
         run: |
-          dvc pull Dataset/heartdisease_indicator_test.csv.dvc
-          dvc pull Dataset/heartdisease_indicator_train.csv.dvc
+          dvc pull dataset/heartdisease_indicator_test.csv.dvc
+          dvc pull dataset/heartdisease_indicator_train.csv.dvc
       - name: Retrain model
         run: |
-          python Models/model/train.py
-      - name: "Read Metrics"
+          python model/train.py
+      - name: Making Report
+        uses: iterative/setup-cml@v1
         run: |
-          OUTPUT=$(cat Models/model/Assests/metrics.md)
+          echo "## Metrics" > report.md
+          cat model/resources/metrics.md >> report.md
+          echo "\n" >> report.md
+          echo "## Confusion Matrix" >> report.md
+          cml model/resources/Confusion-Matrix.png --md >> report.md
+
+          OUTPUT=$(cat report.md)
           echo 'MESSAGE<<EOF' >> $GITHUB_ENV
           echo  "$OUTPUT"  >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
@@ -35,4 +42,4 @@ jobs:
           message: ${{ env.MESSAGE }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]'
-          allow-repeats: false
+          allow-repeats: True
