@@ -18,6 +18,8 @@ def change(path, artifacts = False):
 
     with open(path/'meta.yaml', 'w') as outfile:
         yaml.dump(data, outfile, default_flow_style=False)
+    
+    print(data, '\n')
 
 
 def main():
