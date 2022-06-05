@@ -13,6 +13,8 @@ TARGET = "HeartDisease"
 ASSEST_DIR = Path(__file__).resolve().parent/'resources'
 DATASET_DIR = Path(__file__).resolve().parent.parent/'dataset'
 
+ASSEST_DIR.mkdir(exist_ok=True)
+
 def get_preprocessed_data():
 
     ## DATALOADING
