@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: iterative/setup-cml@v1
       - uses: actions/setup-python@v2
         with:
           python-version: '3.10.4'
@@ -25,7 +26,6 @@ jobs:
         run: |
           python model/train.py
       - name: Making Report
-        uses: iterative/setup-cml@v1
         run: |
           echo "## Metrics" > report.md
           cat model/resources/metrics.md >> report.md
