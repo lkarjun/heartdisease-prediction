@@ -6,7 +6,7 @@ from .preprocess import PreProcess
 import numpy as np
 from pathlib import Path
 
-mlflow.set_tracking_uri(f"file:/{TRACKING_URI.absolute()}")
+mlflow.set_tracking_uri(TRACKING_URI.absolute())
 experiment = mlflow.set_experiment(experiment_id=__experiment_id__)
 
 class Inference:

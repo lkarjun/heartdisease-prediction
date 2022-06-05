@@ -1,4 +1,5 @@
 import streamlit as st
+import app_modules
 from streamlit_option_menu import option_menu
 import streamlit.components.v1 as html
 from st_aggrid import AgGrid
