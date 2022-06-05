@@ -11,9 +11,24 @@ End-to-End · Machine Learning · Project
        <img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" alt="Streamlit App">
   </a>
   &nbsp;
-  <img src="https://img.shields.io/github/pipenv/locked/python-version/lkarjun/heartdisease-prediction?style=flat" alt="Streamlit App">
+  <img src="https://img.shields.io/github/pipenv/locked/python-version/lkarjun/heartdisease-prediction?style=flat&color=3c6e71">
  &nbsp;
-  <img src="https://img.shields.io/badge/status-developing-brightgreen?style=flat" alt="Streamlit App">
+ <img src="https://img.shields.io/github/last-commit/lkarjun/heartdisease-prediction?color=ffffff">
+ &nbsp;
+</div>
+
+
+<div align="center">
+  <img src="https://img.shields.io/github/pipenv/locked/dependency-version/lkarjun/heartdisease-prediction/mlflow?color=f0ead2">
+ &nbsp;
+  <img src="https://img.shields.io/github/pipenv/locked/dependency-version/lkarjun/heartdisease-prediction/dvc?color=dde5b6">
+  &nbsp;
+  <img src="https://img.shields.io/github/pipenv/locked/dependency-version/lkarjun/heartdisease-prediction/streamlit?color=adc178">
+ &nbsp;
+  <img src="https://img.shields.io/github/pipenv/locked/dependency-version/lkarjun/heartdisease-prediction/scikit-learn?color=a98467">
 
 </div>
 
+<div align="center">
+  <img src="https://img.shields.io/badge/status-developing-brightgreen?style=flat&color=a9def9">
+</div>
