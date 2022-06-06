@@ -5,6 +5,7 @@ import json
 from datetime import datetime
 from .static_html import render, track_model_html
 from time import sleep
+import pandas as pd
 
 mlflow.set_tracking_uri(TRACKING_URI.absolute())
 experiment = mlflow.set_experiment(experiment_id=__experiment_id__)
@@ -42,12 +43,12 @@ def write_time_line(runs: list, end: int = 0):
             render(track_model_html, data=data, latest = latest)
 
             st.markdown(f"<h5 style='text-align: left;'>Performance Metrics</h5>", True)
-            metrics = (ASSESTS_DIR/'metrics.md').read_text()
-            st.markdown(metrics, True)
+            metrics = pd.read_html(ASSESTS_DIR/'metrics.md')[0]
+            st.dataframe(metrics)
             st.markdown("<br>", True)
             st.markdown(f"<h5 style='text-align: left;'>Confusion Matrix</h5>", True)
             image = (ASSESTS_DIR/'Confusion-Matrix.png').read_bytes()
-            st.image(image, width = 500)
+            st.image(image)
             st.write('---')
             st.write('---')
 
