@@ -34,7 +34,7 @@ def form_section(form):
         
         with st.expander("Tell Me About Your Bad Habits"):
             drink = st.selectbox("Do You Drink 🍾",('No', 'Yes'))
-            smoke = st.selectbox("Do You Smoker 🚭",('Yes', 'No'))
+            smoke = st.selectbox("Do You Smoke 🚭",('Yes', 'No'))
         
         with st.expander("Tell Me About Your Medical Conditions"):
             col1, col2 = st.columns(2)
