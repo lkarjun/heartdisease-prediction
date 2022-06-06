@@ -11,7 +11,6 @@ def main_title():
     with st.spinner('Loading Model...'):
         infr = Inference()
         render(home_version_display, 29, v = infr.version)
-        sleep(1)
     st.write('---')
     return infr
 
