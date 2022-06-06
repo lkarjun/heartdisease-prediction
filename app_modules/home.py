@@ -50,7 +50,7 @@ def form_section(form):
         with st.expander("Tell Me About Your Health", False):   
             col1, col2 = st.columns(2)
             with col1:
-                sleeptime = st.number_input("Your avg sleeping time 😴", min_value=3)
+                sleeptime = st.number_input("Your Average sleeping time 😴", min_value=3)
                 mental_health = st.number_input("Your Mental Health In Last 30 days❤️‍🩹", min_value=0, max_value=30)
                 
             with col2:
