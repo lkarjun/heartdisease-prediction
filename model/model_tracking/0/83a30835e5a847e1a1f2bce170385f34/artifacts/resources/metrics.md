@@ -1,4 +1,33 @@
-|    | Dataset   |   Accuracy |   Precision |   Recall |   F1-Score |   ROU-AUC-SCORE |
-|---:|:----------|-----------:|------------:|---------:|-----------:|----------------:|
-|  0 | Training  |       0.74 |        0.73 |     0.79 |       0.75 |            0.74 |
-|  1 | Testing   |       0.75 |        0.74 |     0.78 |       0.76 |            0.75 |
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Dataset</th>
+      <th>Accuracy</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1-Score</th>
+      <th>ROU-AUC-SCORE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Training</td>
+      <td>0.74</td>
+      <td>0.73</td>
+      <td>0.79</td>
+      <td>0.75</td>
+      <td>0.74</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Testing</td>
+      <td>0.75</td>
+      <td>0.74</td>
+      <td>0.78</td>
+      <td>0.76</td>
+      <td>0.75</td>
+    </tr>
+  </tbody>
+</table>
