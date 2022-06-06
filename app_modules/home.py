@@ -34,9 +34,9 @@ def form_section(form):
         
         with st.expander("Tell Me About Your Bad Habits"):
             drink = st.selectbox("Do You Drink 🍾",('No', 'Yes'))
-            smoke = st.selectbox("Do You Smoke 🚭",('Yes', 'No'))
+            smoke = st.selectbox("Do You Smoker 🚭",('Yes', 'No'))
         
-        with st.expander("Tell Me About Your Medical Issues"):
+        with st.expander("Tell Me About Your Medical Conditions"):
             col1, col2 = st.columns(2)
             with col1:
                 stroke = st.selectbox("Do You Have Stroke💔",('No', 'Yes'))
@@ -44,20 +44,20 @@ def form_section(form):
                 diabetics = st.selectbox("Are You Diabetic 🍬", ('Yes', 'No'))
             with col2:
                 skin_cancer = st.selectbox("Do You Have Skin Cancer🤚",('No', 'Yes'))
-                diffwalking = st.selectbox("Do You Have DiffWalking 🚶", ('Yes', 'No'))
+                diffwalking = st.selectbox("Are You DiffWalker 🚶", ('Yes', 'No'))
                 kidney_disease = st.selectbox("Do You Have Kindney Diseases🤚",('No', 'Yes'))
 
         with st.expander("Tell Me About Your Health", False):   
             col1, col2 = st.columns(2)
             with col1:
-                sleeptime = st.number_input("Your avg sleep time 😴", min_value=3)
-                mental_health = st.number_input("You're Mental Health In Last 30 days❤️‍🩹", min_value=0, max_value=30)
+                sleeptime = st.number_input("Your avg sleeping time 😴", min_value=3)
+                mental_health = st.number_input("Your Mental Health In Last 30 days❤️‍🩹", min_value=0, max_value=30)
                 
             with col2:
                 physical_health = st.number_input("Your Physical Health In Last 30 days❤️‍🩹🏃‍♀️", max_value=30)
-                physical_activity = st.selectbox("Are You PhysicalActivity 🏃‍♀️",('Yes', 'No'))
+                physical_activity = st.selectbox("Are You Physically Active 🏃‍♀️",('Yes', 'No'))
 
-            health_status = st.selectbox("You're Health Status 🧑‍⚕️", 
+            health_status = st.selectbox("Your Health Status 🧑‍⚕️", 
                                     ('Excellent','Very good',
                                     'Good', 'Fair', 'Poor'))
         warning = st.empty()
