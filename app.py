@@ -21,7 +21,7 @@ with st.sidebar:
                          styles={
                                 "container": {"padding": "5!important", "background-color": "#fafafa"},
                                 "icon": {"color": "#a83f39", "font-size": "35px"}, 
-                                "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "orange"},
+                                "nav-link": {"font-size": "14px", "text-align": "left", "margin":"13px", "--hover-color": "orange"},
                                 "nav-link-selected": {"background-color": "#02ab21"}},
     )
 
