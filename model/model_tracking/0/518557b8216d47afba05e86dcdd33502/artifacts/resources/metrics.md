@@ -1,7 +1,6 @@
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
       <th>Dataset</th>
       <th>Accuracy</th>
       <th>Precision</th>
@@ -12,7 +11,6 @@
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
       <td>Training</td>
       <td>0.74</td>
       <td>0.73</td>
@@ -21,7 +19,6 @@
       <td>0.74</td>
     </tr>
     <tr>
-      <th>1</th>
       <td>Testing</td>
       <td>0.75</td>
       <td>0.74</td>

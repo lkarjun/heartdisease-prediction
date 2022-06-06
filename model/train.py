@@ -76,9 +76,9 @@ def train():
     ## SAVE FIG AND METRICS
     plt.savefig(ASSEST_DIR/'Confusion-Matrix.png')
 
-    with open(ASSEST_DIR/'metrics.md', "w") as file:
-        scores = pd.DataFrame(METRICS).to_markdown()
-        file.write(scores)
+
+    pd.DataFrame(METRICS).to_html(ASSEST_DIR/'metrics.md', index = False)
+ 
 
     print("Save Metrics...✅")
 
