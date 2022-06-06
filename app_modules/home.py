@@ -3,14 +3,15 @@ from model.inference import Inference
 from model.preprocess import COLUMNS
 import pandas as pd
 from time import sleep
+from .static_html import render, home_version_display
 
 def main_title():
-    title = st.title("🫀HeartDisease Prediction", 'title')
+    st.markdown(f"<h1 style='text-align: Center;'>🫀HeartDisease Prediction</h1>", True)
 
     with st.spinner('Loading Model...'):
         infr = Inference()
-
-    st.markdown(f"<h6 style='text-align: left;'>&emsp;v {infr.version}</h6>", True)
+        render(home_version_display, 29, v = infr.version)
+        sleep(1)
     st.write('---')
     return infr
 
