@@ -12,9 +12,9 @@ def change(path, artifacts = False):
         data = yaml.load(file, yaml.FullLoader)
 
     if artifacts:
-        data['artifact_uri'] = str(path/'artifacts')
+        data['artifact_uri'] = str(f"file:/{path/'artifacts'}")
     else:
-        data['artifact_location'] = str(path)
+        data['artifact_location'] = str(f"file:/{path}")
 
     with open(path/'meta.yaml', 'w') as outfile:
         yaml.dump(data, outfile, default_flow_style=False)
