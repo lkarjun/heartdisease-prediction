@@ -10,6 +10,9 @@ jobs:
   if_merged:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    env:
+      AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+      AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -19,16 +22,10 @@ jobs:
         run: |
           pip install -r requirements.txt
       - name: Downloading Dataset
-        env:
-          AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
-          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
         run: |
           dvc pull dataset/heartdisease_indicator_test.csv.dvc
           dvc pull dataset/heartdisease_indicator_train.csv.dvc
       - name: Run-Track-Training
-        env:
-          AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
-          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
         run: |
           python app_modules/fix_path.py
           python model/run_track_training.py
