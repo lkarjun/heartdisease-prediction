@@ -33,4 +33,6 @@ jobs:
             git add model/
             git commit -m "✅Updated Model -> $run_id"
             git push
+          else
+            echo $GITHUB_HEAD_REF
           fi
