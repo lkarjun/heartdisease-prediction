@@ -8,7 +8,7 @@ on:
 
 jobs:
   if_merged:
-    if: github.event.pull_request.merged == true && ${{ github.base_ref == 'experiments' }}
+    if: ${{ (github.event.pull_request.merged == true) && (github.base_ref == 'experiments') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
