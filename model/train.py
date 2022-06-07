@@ -91,8 +91,9 @@ def train():
                    'model': model,
                    'tags': {'estimator_name': type(model).__name__,
                             'model_tag': "BaseLine",
-                            'model_version': "0.2.0",
+                            'model_version': "0.2.3",
                             'model_type': "Ensemble",
+                            'model': 'Tree',
                             'trained_from': 'Github CI CD'
                             }
                    }
