@@ -72,6 +72,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.run_id:
-        print(get_run_info(return_latest=True))
+        print(get_run_info(return_latest=True).run_id)
     else:
         track()
