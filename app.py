@@ -3,7 +3,6 @@ import app_modules
 from streamlit_option_menu import option_menu
 import streamlit.components.v1 as html
 from st_aggrid import AgGrid
-from app_modules import home, details, contacts, about, track_model
 import os
 
 ### Env
@@ -26,8 +25,18 @@ with st.sidebar:
     )
 
 match choose:
-    case "Home": home.home()
-    case "Details": details.main()
-    case "Track Development": track_model.main()
-    case "About Project": about.main()
-    case "About Me": contacts.main()
+    case "Home": 
+        from app_modules import home
+        home.home()
+    case "Details": 
+        from app_modules import details
+        details.main()
+    case "Track Development": 
+        from app_modules import track_model
+        track_model.main()
+    case "About Project": 
+        from app_modules import about
+        about.main()
+    case "About Me": 
+        from app_modules import contacts
+        contacts.main()
