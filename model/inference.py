@@ -24,8 +24,9 @@ class Inference:
         self.failed = False
 
     def predict(self, data: DataFrame):
-        if self.model == None:
-            return {'Error': 'Failed to load model'}
+
+        self._pre_predict()
+
         data = self.preprocess.transform(data)
         pred = self.model.predict_proba(data)
         pred = pred.flatten()
@@ -35,6 +36,10 @@ class Inference:
                       "predictions": {'No': pred[0], 'Yes': pred[1]},
                       "predicted": accurate_prediciton}
         return prediction
+    
+    def _pre_predict(self, **kwargs):
+        if self.model == None:
+            raise f'Error failed to load model {self.model_run_id}'
 
     def _load_model(self):
         try:
