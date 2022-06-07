@@ -1,0 +1,15 @@
+artifact_uri: file:///home/runner/work/heartdisease-prediction/heartdisease-prediction/model/model_tracking/0/e71b8b4a77ce4543bd3cb4a70d92f958/artifacts
+end_time: 1654587405965
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: e71b8b4a77ce4543bd3cb4a70d92f958
+run_uuid: e71b8b4a77ce4543bd3cb4a70d92f958
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1654587401819
+status: 3
+tags: []
+user_id: runner

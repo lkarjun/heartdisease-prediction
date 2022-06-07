@@ -8,7 +8,7 @@ on:
 
 jobs:
   if_merged:
-    if: github.event.pull_request.merged == true && ${{ github.base_ref == 'experiments' }}
+    if: ${{ (github.event.pull_request.merged == true) && (github.base_ref == 'experiments') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -38,5 +38,5 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           run_id=$(python model/run_track_training.py --run_id True)
           git add model/
-          git commit -m "Updated Model -> $run_id"
+          git commit -m "✅Updated Model -> $run_id"
           git push

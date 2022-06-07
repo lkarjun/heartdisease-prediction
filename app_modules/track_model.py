@@ -1,5 +1,5 @@
 import streamlit as st
-from model import __experiment_id__, TRACKING_URI, __latest_run_id__
+from model import __experiment_id__, TRACKING_URI, get_infos
 import mlflow
 import json
 from datetime import datetime
@@ -30,7 +30,7 @@ def get_info(run_id):
             'updated_time': update_date.date()}
     return data
 
-def write_time_line(runs: list, end: int = 0):
+def write_time_line(runs: list, __latest_run_id__: str, end: int = 0):
     for run in runs:
         with st.spinner("Loading"): 
             sleep(1)
@@ -57,11 +57,6 @@ def main():
     
     with st.spinner("Loading..."):
         full_runs = get_run_info()
+        run_id = get_infos()['run_id']
     st.write('---')
-    write_time_line(full_runs)
-    # track_model_render(runs = full_runs, 
-    #                    get_info = get_info, 
-    #                    TRACKING_URI=TRACKING_URI,
-    #                    __experiment_id__ = __experiment_id__,
-    #                    format_string = format_string,
-    #                    st = st)
+    write_time_line(full_runs, run_id)
