@@ -2,9 +2,8 @@ import streamlit as st
 import app_modules
 from streamlit_option_menu import option_menu
 import streamlit.components.v1 as html
-from st_aggrid import AgGrid
 import os
-from app_modules import about, contacts
+from app_modules import about, contacts, home, details, track_model
 
 ### Env
 os.environ["AZURE_STORAGE_ACCOUNT"] = st.secrets["AZURE_STORAGE_ACCOUNT"]
@@ -26,17 +25,11 @@ with st.sidebar:
     )
 
 match choose:
-    case "Home": 
-        with st.spinner("Loading"):
-            from app_modules import home
+    case "Home":
         home.home()
     case "Details": 
-        with st.spinner("Loading"):
-            from app_modules import details
         details.main()
     case "Track Development": 
-        with st.spinner("Loading"):
-            from app_modules import track_model
         track_model.main()
     case "About Project": 
         about.main()
