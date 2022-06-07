@@ -31,7 +31,7 @@ jobs:
         run: |
           echo "## Metrics" > report.md
           cat model/resources/metrics.md >> report.md
-          echo "\n" >> report.md
+          echo $'\n' >> report.md
           echo "## Confusion Matrix" >> report.md
           cml publish model/resources/Confusion-Matrix.png --md >> report.md
           OUTPUT=$(cat report.md)
