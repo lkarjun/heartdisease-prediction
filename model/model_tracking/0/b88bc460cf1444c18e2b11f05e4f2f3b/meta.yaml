@@ -1,4 +1,4 @@
-artifact_uri: file:///C:\Users\HP\Desktop\Mlops-Workout\model\model_tracking\0/b88bc460cf1444c18e2b11f05e4f2f3b/artifacts
+artifact_uri: file:///home/runner/work/heartdisease-prediction/heartdisease-prediction/model/model_tracking/0/b88bc460cf1444c18e2b11f05e4f2f3b/artifacts
 end_time: 1654581297993
 entry_point_name: ''
 experiment_id: '0'
