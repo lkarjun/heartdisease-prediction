@@ -53,5 +53,5 @@ class Inference:
 
     def _pull_model(self):
         from os import system
-        status = system(f"dvc pull {self.model_path}.dvc")
+        status = system(f"dvc pull -r models {self.model_path}.dvc")
         return status
