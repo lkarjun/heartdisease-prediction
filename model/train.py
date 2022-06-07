@@ -44,7 +44,7 @@ def train():
     X_train, Y_train, X_test, Y_test = get_preprocessed_data()
 
     ## MODELING
-    model = RandomForestClassifier(n_estimators=70, max_depth=5, random_state=2390, max_features='log2')
+    model = RandomForestClassifier(n_estimators=70, max_depth=5, random_state=2390, max_features='log2', bootstrap = False)
     model.fit(X_train, Y_train)
     print("Model Fit...✅")
     
