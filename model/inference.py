@@ -1,4 +1,4 @@
-from . import __version__, MODEL_DIR, __latest_run_id__, __experiment_id__, TRACKING_URI, __updated_time__
+from . import TRACKING_URI, get_infos, __experiment_id__
 import mlflow
 import pickle
 from pandas import DataFrame
@@ -12,10 +12,11 @@ experiment = mlflow.set_experiment(experiment_id=__experiment_id__)
 class Inference:
 
     def __init__(self):
-        self.version = __version__
-        self.model_run_id = __latest_run_id__
-        self.experiment_id = __experiment_id__
-        self.updated_time = __updated_time__
+        self.infos = get_infos()
+        self.version = self.infos['version']
+        self.model_run_id = self.infos['run_id']
+        self.experiment_id = self.infos['experiment_id']
+        self.updated_time = self.infos['updated_time']
         self.retry_state = 0
         self.c = {0: 'No', 1: 'Yes'}
         self.model = self._load_model()
