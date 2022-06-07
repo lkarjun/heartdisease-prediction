@@ -13,7 +13,7 @@ track_model_html = """
         {% if latest %}
             <span class="badge rounded-pill text-bg-success">Latest Model</span>
         {% else %}
-            <span class="badge rounded-pill text-bg-danger">Out of date</span>
+            <span class="badge rounded-pill text-bg-danger">Outdated</span>
         {% endif %}
         <span class="badge rounded-pill text-bg-info">{{ data['version'] }}</span>
         <span class="badge rounded-pill text-bg-info">{{ data['updated_time'] }}</span>
