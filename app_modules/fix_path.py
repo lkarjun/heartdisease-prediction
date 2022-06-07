@@ -1,6 +1,8 @@
 from pathlib import Path
 import yaml
+import os
 
+file_prefix = "file:///" if os.name == 'nt' else "file://"
 
 cwd = Path(__file__).resolve().parent.parent
 
@@ -12,9 +14,9 @@ def change(path, artifacts = False):
         data = yaml.load(file, yaml.FullLoader)
 
     if artifacts:
-        data['artifact_uri'] = str(f"file:/{path/'artifacts'}")
+        data['artifact_uri'] = str(f"{file_prefix}{path/'artifacts'}")
     else:
-        data['artifact_location'] = str(f"file:/{path}")
+        data['artifact_location'] = str(f"{file_prefix}{path}")
 
     with open(path/'meta.yaml', 'w') as outfile:
         yaml.dump(data, outfile, default_flow_style=False)

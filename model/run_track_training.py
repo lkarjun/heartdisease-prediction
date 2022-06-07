@@ -4,11 +4,14 @@ from os import system
 import warnings
 import mlflow
 import json
+import os
+
+file_prefix = "file:///" if os.name == 'nt' else "file://"
 
 warnings.filterwarnings("ignore")
 
 TRACKING_URI = Path(__file__).resolve().parent/'model_tracking'
-mlflow.set_tracking_uri(f"file:/{TRACKING_URI.absolute()}")
+mlflow.set_tracking_uri(f"{file_prefix}{TRACKING_URI.absolute()}")
 experiment = mlflow.set_experiment("CI/CD")
 
 def track():
