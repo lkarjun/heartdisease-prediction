@@ -12,6 +12,8 @@ streamlit-option-menu = "*"
 streamlit-aggrid = "*"
 matplotlib = "*"
 mlflow = "*"
+jinja2 = "*"
+lxml = "*"
 
 [dev-packages]
 ipykernel = "*"
