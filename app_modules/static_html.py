@@ -11,7 +11,7 @@ track_model_html = """
 
     <div class='text-center'>
         {% if latest %}
-            <span class="badge rounded-pill text-bg-success">Latest</span>
+            <span class="badge rounded-pill text-bg-success">Latest Model</span>
         {% else %}
             <span class="badge rounded-pill text-bg-danger">Out of date</span>
         {% endif %}

@@ -17,7 +17,7 @@ def display_about_data():
         from os import system
         with st.spinner("Loading Dataset..."):
             system(f'dvc pull dataset/{TRAIN}.dvc')
-    st.markdown(f"<h2 style='text-align: center;'>Train Dataset</h2>", True)
+    st.markdown(f"<h2 style='text-align: center;'>Training Dataset</h2>", True)
     st.write('---')
     df = pd.read_csv(DATASET)
     st.dataframe(df.head(5))
