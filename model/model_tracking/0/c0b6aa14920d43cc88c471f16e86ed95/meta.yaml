@@ -1,0 +1,15 @@
+artifact_uri: file:///C:\Users\HP\Desktop\Mlops-Workout\model\model_tracking\0/c0b6aa14920d43cc88c471f16e86ed95/artifacts
+end_time: 1654582979231
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: c0b6aa14920d43cc88c471f16e86ed95
+run_uuid: c0b6aa14920d43cc88c471f16e86ed95
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1654582968919
+status: 3
+tags: []
+user_id: HP
