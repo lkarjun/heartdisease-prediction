@@ -44,7 +44,7 @@ class Inference:
             return model
         except Exception:
             status = self._pull_model()
-            if status and (self.retry_state >= 5):
+            if status and (self.retry_state <= 5):
                 print(f"Downloading model -> Retrying {self.retry_state}")
                 self.failed = True
                 return
