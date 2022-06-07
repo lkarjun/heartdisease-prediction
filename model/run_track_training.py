@@ -1,6 +1,7 @@
 from pathlib import Path
 from train import train, ASSEST_DIR
 from os import system
+import argparse
 import warnings
 import mlflow
 import json
@@ -66,4 +67,11 @@ def push_latest_model_to_azure():
 
 
 if __name__ == "__main__":
-    track()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--run_id", default=False, help = "Return Run Latest Id", type=bool)
+    args = parser.parse_args()
+
+    if args.run_id:
+        print(get_run_info(return_latest=True))
+    else:
+        track()
