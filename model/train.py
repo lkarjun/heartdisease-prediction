@@ -59,7 +59,7 @@ def run_training(model_parmas: dict, tags: dict, reg_model_name: str, compare_la
 
     return data
 
-def train(reg_model_name, compare_latest = False):
+def train(reg_model_name, compare_latest = True):
     with open(CONFIG_PATH/'training_config.yaml') as file:
         data = yaml.load(file, yaml.FullLoader)
     return run_training(**data, reg_model_name=reg_model_name, compare_latest=compare_latest)

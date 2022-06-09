@@ -30,16 +30,14 @@ def get_run_id(latest = True):
     run = get_run_infos(return_latest=True) if latest else get_run_infos(second_last=True)
     return run.run_id
 
-def get_model(reg_model_name = "BASELINE", latest: bool = True, second_last: bool = True):
+def get_model(reg_model_name = "BASELINE", latest: bool = True):
     client = MlflowClient()
     mvs = client.search_registered_models(f"name='{reg_model_name}'")
     
-    if len(mvs) and latest:
+    if len(mvs) == 0: return False
+    if latest:
         mvs = mvs[0].latest_versions
         return get_model_helper(mvs[-1])
-    if len(mvs) and second_last and len(mvs) >= 2:
-        mvs = mvs[0].latest_versions
-        return get_model_helper(mvs[-2])
     return False
 
 def get_model_helper(mv):
@@ -79,6 +77,8 @@ def save_preprocess(preprocess):
         print("Save Preprocessor...✅")
 
 def save_fig(model, X_test, Y_test, reg_model_name, compare_latest):
+    for f in ASSEST_DIR.iterdir():
+        if f.name.endswith(".png"): f.unlink()
     ConfusionMatrixDisplay.from_estimator(model, X_test, Y_test, cmap='PuRd')
     plt.savefig(ASSEST_DIR/'Confusion-Matrix.png')
 
