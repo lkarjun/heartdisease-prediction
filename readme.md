@@ -1,7 +1,7 @@
 
 <div align="center">
-<h1>🫀&nbsp;<a href="https://share.streamlit.io/lkarjun/heartdisease-prediction/app.py">Heart Disease Prediction Application</a></h1>
-End-to-End · Continuous Machine Learning · Project
+<h1>🫀&nbsp;<a href="https://share.streamlit.io/lkarjun/heartdisease-prediction/experiments/app.py">Heart Disease Prediction Application</a></h1>
+End-to-End · Continuous Machine Learning · Github CI/CD
 </div>
 
 <br>
