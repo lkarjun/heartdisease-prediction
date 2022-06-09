@@ -38,9 +38,9 @@ class PreProcess(TransformerMixin):
         
         for key, value in REPLACE_VALUES.items():
             if key != self.target:
-                X[key].replace(value, inplace = True)
+                X[key] = X[key].replace(value)
         
         if y is not None:
-            y.replace(REPLACE_VALUES[self.target], inplace = True)
+            y = y.replace(REPLACE_VALUES[self.target])
             return X, y
         return X

@@ -4,8 +4,11 @@ from mlflow.tracking import MlflowClient
 import mlflow
 import argparse
 import warnings
-import json
 import os
+import yaml
+
+
+warnings.filterwarnings("ignore")
 
 TRACKING_URI =  Path(__file__).resolve().parent/"tracking/records.db"
 
@@ -13,18 +16,23 @@ mlflow.set_tracking_uri(f"sqlite:///{TRACKING_URI.absolute()}")
 
 experiment = mlflow.set_experiment("CI/CD")
 
+def set_reg_model_tag(registered_model_tag: dict, registered_model_name:str):
+    client = MlflowClient()
+    for k, v in registered_model_tag.items():
+        client.set_registered_model_tag(
+                    name=registered_model_name,
+                    key=k, 
+                    value=v)
 
-def change_model_stage(registered_model_name = "BASELINE"):
+def change_model_stage(registered_model_name:str):
     
     client = MlflowClient()
     mvs = client.search_model_versions(f"name='{registered_model_name}'")
-
     for mv in mvs[:-1]:
         client.transition_model_version_stage(
                             name=registered_model_name,
                             version=mv.version,
                             stage='Archived')
-
     client.transition_model_version_stage(
                             name=registered_model_name,
                             version=mvs[-1].version,
@@ -33,7 +41,10 @@ def change_model_stage(registered_model_name = "BASELINE"):
     print("Model stage changes...✅")
     return
 
-def track(run_name="CI/CD-AUTO", registered_model_name = 'BASELINE'):
+def track(run_name:str, 
+          registered_model_name: str, 
+          registered_model_tag:dict,
+          ):
     with mlflow.start_run(run_name=run_name) as run:
         return_data = train()
         mlflow.log_params(return_data['params'])
@@ -52,6 +63,8 @@ def track(run_name="CI/CD-AUTO", registered_model_name = 'BASELINE'):
     mlflow.end_run()
     
     change_model_stage(registered_model_name = registered_model_name)
+    set_reg_model_tag(registered_model_name = registered_model_name,
+                      registered_model_tag = registered_model_tag)
     push_latest_model_to_azure()
     print("Finshed...✔️\n")
 
@@ -74,5 +87,14 @@ def push_latest_model_to_azure():
 
 
 if __name__ == "__main__":
-    # print(change_model_stage())
-    track()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--run_id", default=False, help = "Return Run Latest Id", type=bool)
+    args = parser.parse_args()
+
+    if args.run_id:
+        print(get_run_info(return_latest=True).run_id)
+    else:
+        with open(TRACKING_URI.parent.parent/'configs/track_training_config.yaml') as file:
+            data = yaml.load(file, yaml.FullLoader)
+        
+        track(**data)
