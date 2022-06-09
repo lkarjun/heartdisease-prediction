@@ -32,10 +32,13 @@ def get_run_id(latest = True):
 
 def get_model(reg_model_name = "BASELINE", latest: bool = True, second_last: bool = True):
     client = MlflowClient()
-    mvs = client.search_registered_models(f"name='{reg_model_name}'")[0].latest_versions
-    if latest:
+    mvs = client.search_registered_models(f"name='{reg_model_name}'")
+    
+    if len(mvs) and latest:
+        mvs = mvs[0].latest_versions
         return get_model_helper(mvs[-1])
-    if second_last and len(mvs) >= 2:
+    if len(mvs) and second_last and len(mvs) >= 2:
+        mvs = mvs[0].latest_versions
         return get_model_helper(mvs[-2])
     return False
 

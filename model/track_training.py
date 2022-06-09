@@ -7,13 +7,10 @@ import warnings
 import os
 import yaml
 
-
 warnings.filterwarnings("ignore")
 
 TRACKING_URI =  Path(__file__).resolve().parent/"tracking/records.db"
-
 mlflow.set_tracking_uri(f"sqlite:///{TRACKING_URI.absolute()}")
-
 experiment = mlflow.set_experiment("CI/CD")
 
 def set_reg_model_tag(registered_model_tag: dict, registered_model_name:str):
@@ -46,7 +43,7 @@ def track(run_name:str,
           registered_model_tag:dict,
           ):
     with mlflow.start_run(run_name=run_name) as run:
-        return_data = train()
+        return_data = train(registered_model_name)
         mlflow.log_params(return_data['params'])
         print("\nLog Params...✅")
         mlflow.log_metrics(return_data['metrics'])

@@ -3,7 +3,7 @@ from sklearn.metrics import roc_auc_score, accuracy_score, \
                             precision_score, recall_score, \
                             f1_score
 from preprocess import PreProcess
-from utils import load_data, save_fig, save_metrics, save_preprocess
+from utils import load_data, save_fig, save_metrics, save_preprocess, ASSEST_DIR
 from pathlib import Path
 import yaml
 
