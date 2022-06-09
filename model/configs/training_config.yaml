@@ -1,0 +1,13 @@
+## EDITABLES
+
+tags:
+  model_tag: 'BaseLine'
+  trained_from: 'Github CI CD'
+  model_type: 'Ensemble'
+
+model_parmas:
+  n_estimators: 7 
+  max_depth: 5
+  random_state: 2390
+  max_features: 'log2'
+  bootstrap: True
