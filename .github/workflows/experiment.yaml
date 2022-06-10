@@ -37,7 +37,7 @@ jobs:
 
           if [[ -f "model/resources/Comparing-Version.png" ]]; then
             echo $'\n' >> report.md
-            echo "## Comparing Matrix" >> report.md
+            echo "## Comparing LastVersion" >> report.md
             cml publish model/resources/Comparing-Version.png --md >> report.md
 
           OUTPUT=$(cat report.md)
