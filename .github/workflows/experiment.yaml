@@ -34,6 +34,12 @@ jobs:
           echo $'\n' >> report.md
           echo "## Confusion Matrix" >> report.md
           cml publish model/resources/Confusion-Matrix.png --md >> report.md
+
+          if [[ -f "model/resources/Comparing-Version.png" ]]; then
+            echo $'\n' >> report.md
+            echo "## Comparing Matrix" >> report.md
+            cml publish model/resources/Comparing-Version.png --md >> report.md
+
           OUTPUT=$(cat report.md)
           echo 'MESSAGE<<EOF' >> $GITHUB_ENV
           echo  "$OUTPUT"  >> $GITHUB_ENV
