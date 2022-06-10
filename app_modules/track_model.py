@@ -30,7 +30,7 @@ def get_info(run_id, version):
     return data
 
 def write_time_line(registeredmodels: list):
-    for model in registeredmodels:
+    for model in registeredmodels[::-1]:
         with st.spinner("Loading"): 
             sleep(1)
             run = model.latest_versions[-1]
