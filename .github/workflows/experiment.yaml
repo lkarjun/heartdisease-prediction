@@ -22,6 +22,7 @@ jobs:
         run: |
           dvc pull dataset/heartdisease_indicator_test.csv.dvc
           dvc pull dataset/heartdisease_indicator_train.csv.dvc
+          dvc pull -r models
       - name: Retrain model
         run: |
           python model/train.py
