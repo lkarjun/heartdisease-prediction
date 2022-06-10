@@ -1,8 +1,7 @@
 import streamlit as st
-from model.inference import Inference
-from model.preprocess import COLUMNS
 import pandas as pd
 from time import sleep
+from model.inference import Inference
 from .static_html import render, home_version_display
 
 def main_title():
@@ -10,8 +9,8 @@ def main_title():
 
     with st.spinner('Loading Model...'):
         infr = Inference()
-        render(home_version_display, 29, v = infr.version)
-    st.markdown("<br>", True)
+        render(home_version_display, 29, v = infr.version, tag = infr.tag)
+        st.markdown("<br>", True)
     return infr
 
 def form_section(form):
@@ -100,7 +99,7 @@ def write_prediction(rslt, data, infr):
     username = data['Name']
     data.pop('Name')
     df = pd.DataFrame(data)
-    pred = infr.predict(df[COLUMNS])
+    pred = infr.predict(df)
     st.write(pred)
     predictions = pred['predictions']
     if pred['predicted'] == 'Yes':
