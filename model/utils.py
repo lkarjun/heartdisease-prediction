@@ -46,10 +46,10 @@ def get_model_helper(mv):
         model = pickle.load(fb)
     return model, mv.version
 
-def get_regmodel(reg_model_name = "BASELINE"):
+def get_regmodel_names():
     client = MlflowClient()
-    mvs = client.search_registered_models(f"name='{reg_model_name}'")[0]
-    return mvs.latest_versions[::-1]
+    mvs = client.search_registered_models()
+    return mvs
 
 def load_data():
     TARGET = "HeartDisease"
