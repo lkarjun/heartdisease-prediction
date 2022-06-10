@@ -40,7 +40,8 @@ jobs:
             echo $'\n' >> report.md
             echo "## Comparing LastVersion" >> report.md
             cml publish model/resources/Comparing-Version.png --md >> report.md
-
+          fi
+          
           OUTPUT=$(cat report.md)
           echo 'MESSAGE<<EOF' >> $GITHUB_ENV
           echo  "$OUTPUT"  >> $GITHUB_ENV
