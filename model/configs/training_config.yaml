@@ -1,13 +1,14 @@
 ## EDITABLES
 
 tags:
-  model_tag: 'BaseLine'
+  model_tag: 'Tree'
   trained_from: 'Github CI CD'
   model_type: 'Ensemble'
-
+  
 model_parmas:
-  n_estimators: 40
-  max_depth: 8
-  random_state: 343
+  n_estimators: 28
+  max_depth: 15
+  random_state: 555
   oob_score: True
   bootstrap: True
+  warm_start: True
