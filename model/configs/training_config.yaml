@@ -6,8 +6,8 @@ tags:
   model_type: 'Ensemble'
 
 model_parmas:
-  n_estimators: 40
-  max_depth: 8
+  n_estimators: 300
+  max_depth: 100
   random_state: 343
   oob_score: True
   bootstrap: True
