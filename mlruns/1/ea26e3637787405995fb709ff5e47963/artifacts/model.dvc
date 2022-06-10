@@ -1,0 +1,5 @@
+outs:
+- md5: 1647b5b1a80ff3ff6ad5f6ea8a3ea012.dir
+  size: 1139943
+  nfiles: 5
+  path: model

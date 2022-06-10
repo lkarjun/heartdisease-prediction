@@ -87,6 +87,7 @@ def save_fig(model, X_test, Y_test, reg_model_name, compare_latest):
     if not comparing_model:
         return 
     fig, axs = plt.subplots(ncols=2)
+    fig.set_size_inches(20, 8)
     label = [f"{reg_model_name} Model", f"{reg_model_name} Model Version: {comparing_model[1]}"]
     cmodel_prob = comparing_model[0].predict_proba(X_test)
     model1_prob = model.predict_proba(X_test)

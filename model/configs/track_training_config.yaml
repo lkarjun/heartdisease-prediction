@@ -1,5 +1,5 @@
 ## EDITABLES
 run_name: "CI/CD-AUTO"
-registered_model_name: "BASELINE"
+registered_model_name: "RANDOMFOREST"
 registered_model_tag:
   Type: "Enesable"
