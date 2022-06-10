@@ -39,7 +39,8 @@ def write_time_line(registeredmodels: list):
 
             latest = True
             render(track_model_html, data=data, latest = latest, name=run.name, 
-                    height=150, version=run.version, status= run.status, stage = run.current_stage)
+                    height=150, version=run.version, status= run.status, 
+                    stage = run.current_stage, notdetails = True)
 
             st.markdown(f"<h5 style='text-align: left;'>Performance Metrics</h5>", True)
             metrics = pd.read_html(ASSESTS_DIR/'metrics.md')[0]

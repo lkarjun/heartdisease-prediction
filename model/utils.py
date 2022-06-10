@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import mlflow
 from mlflow.tracking import MlflowClient
 import pickle
+import yaml
 
 ASSEST_DIR = Path(__file__).resolve().parent/'resources'
 ASSEST_DIR.mkdir(exist_ok=True)
@@ -115,7 +116,13 @@ def save_fig(model, X_test, Y_test, reg_model_name, compare_latest):
     plt.suptitle(f'Comparing {reg_model_name} Models')
     plt.savefig(ASSEST_DIR/'Comparing-Version.png')
 
+def get_detail():
+    with open(TRACKING_URI.parent.parent/'configs/track_training_config.yaml') as file:
+            data = yaml.load(file, yaml.FullLoader)
 
+    client = MlflowClient()
+    mvs = client.search_registered_models(f"name='{data['registered_model_name']}'")
+    return mvs[0]
 
 if __name__ == "__main__":
     if get_model("BASELINE-2"):
