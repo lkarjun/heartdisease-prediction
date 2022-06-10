@@ -18,9 +18,9 @@ with st.sidebar:
                          icons = ['house', 'journal-code', 'kanban', 'book','person lines fill'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
-                                "container": {"padding": "5!important", "background-color": "#fafafa"},
-                                "icon": {"color": "#a83f39", "font-size": "35px"}, 
-                                "nav-link": {"font-size": "14px", "text-align": "left", "margin":"13px", "--hover-color": "orange"},
+                                "container": {"padding": "5!important", "background-color": "#F5DF99"},
+                                "icon": {"color": "#a83f39", "font-size": "30px"}, 
+                                "nav-link": {"font-size": "14px", "text-align": "left", "margin":"10px", "--hover-color": "orange"},
                                 "nav-link-selected": {"background-color": "#02ab21"}},
     )
 

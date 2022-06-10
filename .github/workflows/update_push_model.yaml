@@ -33,7 +33,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          run_id=$(python model/run_track_training.py --run_id True)
+          run_id=$(python model/track_training.py --run_id True)
+          git add mlruns/
           git add model/
           git commit -m "✅Updated Model -> $run_id"
           git push
@@ -47,5 +48,11 @@ jobs:
           echo $'\n' >> report.md
           echo "## Confusion Matrix" >> report.md
           cml publish model/resources/Confusion-Matrix.png --md >> report.md
+
+          if [[ -f "model/resources/Comparing-Version.png" ]]; then
+            echo $'\n' >> report.md
+            echo "## Comparing LastVersion" >> report.md
+            cml publish model/resources/Comparing-Version.png --md >> report.md
+
           cml send-comment report.md
 
