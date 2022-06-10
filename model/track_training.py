@@ -72,7 +72,7 @@ def get_run_info(return_latest: bool = False):
 def push_latest_model_to_azure():
     experiment_id = experiment.experiment_id
     run = get_run_info(return_latest=True)
-    artifact_path = f"mlruns/{experiment_id}/{run.run_id}"
+    artifact_path = f"mlruns/{experiment_id}/{run.run_id}/artifacts/model"
     add_command = f"dvc add {artifact_path}"
     push_command = f"dvc push -r models {artifact_path}.dvc"
     add_status = os.system(add_command)
