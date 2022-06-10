@@ -59,7 +59,6 @@ def write_time_line(registeredmodels: list):
 
 def main():
     st.markdown(f"<h2 style='text-align: Center;'>Model Timeline 🫀</h2>", True)
-    st.write(get_regmodel_names())
     with st.spinner("Loading"):
         reg_models = get_regmodel_names()
     st.write('---')
