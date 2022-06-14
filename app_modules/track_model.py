@@ -30,6 +30,7 @@ def get_info(run_id, version):
     return data
 
 def write_time_line(registeredmodels: list):
+    c = 1
     for model in registeredmodels[::-1]:
         with st.spinner("Loading"): 
             sleep(1)
@@ -37,9 +38,9 @@ def write_time_line(registeredmodels: list):
             data = get_info(run.run_id, run.version)
             ASSESTS_DIR = ASSET_BASE/f"{experiment.experiment_id}/{run.run_id}/artifacts/resources"
 
-            latest = True
+            latest = True if c == 1 else False
             render(track_model_html, data=data, latest = latest, name=run.name, 
-                    height=150, version=run.version, status= run.status, 
+                    height=155, version=run.version, status= run.status, 
                     stage = run.current_stage, notdetails = True)
 
             st.markdown(f"<h5 style='text-align: left;'>Performance Metrics</h5>", True)
@@ -57,6 +58,7 @@ def write_time_line(registeredmodels: list):
             st.markdown("<br>", True)
             st.write('---')
             st.markdown("<br>", True)
+        c += 1
 
 def main():
     st.markdown(f"<h2 style='text-align: Center;'>Model Timeline 🫀</h2>", True)
