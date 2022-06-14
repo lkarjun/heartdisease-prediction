@@ -1,6 +1,6 @@
 
 <div align="center">
-<h1>🫀&nbsp;<a href="https://share.streamlit.io/lkarjun/heartdisease-prediction/experiments/app.py">Heart Disease Prediction Application</a></h1>
+<h1>🫀&nbsp;<a href="https://share.streamlit.io/lkarjun/heartdisease-prediction/experiments/app.py">Personal Key Indicator of Heart Disease Application</a></h1>
 End-to-End · Continuous Machine Learning · Github CI/CD
 </div>
 
@@ -29,6 +29,4 @@ End-to-End · Continuous Machine Learning · Github CI/CD
 
 </div>
 
-<div align="center">
-  <img src="https://img.shields.io/badge/status-developing-brightgreen?style=flat&color=a9def9">
-</div>
+---
