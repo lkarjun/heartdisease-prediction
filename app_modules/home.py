@@ -5,7 +5,7 @@ from model.inference import Inference
 from .static_html import render, home_version_display
 
 def main_title():
-    st.markdown(f"<h1 style='text-align: Center;'>🫀HeartDisease Prediction</h1>", True)
+    st.markdown(f"<h1 style='text-align: Center;'>🫀Personal Key Indicator of Heart Disease</h1>", True)
 
     with st.spinner('Loading Model...'):
         infr = Inference()

@@ -35,8 +35,10 @@ track_model_html = """
         
         <div class='m-2'>
             <span class="badge" style="background-color: #ECDBBA; color: #121212">{{ data['run_id'] }}</span>
+            {% if latest %}
                 <span class="badge" style="background-color: #5FD068; color: #121212">{{ stage }}</span>
-            <span class="badge" style="background-color: #5FD068; color: #121212">{{ status }}</span>
+                <span class="badge" style="background-color: #5FD068; color: #121212">{{ status }}</span>
+            {% endif %}
         </div>
     </div>
     <br>
