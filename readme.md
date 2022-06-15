@@ -34,9 +34,12 @@ End-to-End · Continuous Machine Learning · Github CI/CD
 <div align='center'>
   
   <h2>Application Working </h2>
-  <img src="https://user-images.githubusercontent.com/58617251/173622523-36797d24-107c-452c-ab9c-ced4ebe1807d.png"
-      width = '519' height='356'
-  > 
+   <table>
+     <tr>
+       <td>Github CI / Cd </td>
+       <td><img src="https://user-images.githubusercontent.com/58617251/173622523-36797d24-107c-452c-ab9c-ced4ebe1807d.png" width=519 hight=356></td>
+     </tr>
+   </table
   
   <br><br>
   
