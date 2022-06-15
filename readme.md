@@ -1,6 +1,6 @@
 
 <div align="center">
-<h1>🫀&nbsp;<a href="https://share.streamlit.io/lkarjun/heartdisease-prediction/experiments/app.py">Personal Key Indicator of Heart Disease Application</a></h1>
+<h1>🫀&nbsp;<a href="https://share.streamlit.io/lkarjun/heartdisease-prediction/experiments/app.py">Personal Key Indicator of Heart Disease <br>Application</a></h1>
 End-to-End · Continuous Machine Learning · Github CI/CD
 </div>
 
