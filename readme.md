@@ -54,7 +54,7 @@ End-to-End · Continuous Machine Learning · Github CI/CD
     </tr>
   </table>
   
-  <br><br>
+  <br>
   
   <h4 align='center'>After merging the pull request</h4><br>
   <table>
