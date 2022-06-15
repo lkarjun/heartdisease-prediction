@@ -37,4 +37,15 @@ End-to-End · Continuous Machine Learning · Github CI/CD
   <img src="https://user-images.githubusercontent.com/58617251/173622523-36797d24-107c-452c-ab9c-ced4ebe1807d.png"
       width = '519' height='356'
   > 
+  
+  <br><br>
+  
+  <h4 align='center'>Github Bot pull request comment after running Github Action on a pull request to the Experiment branch </h4>
+  <table>
+    <tr>
+      <td><img src="https://user-images.githubusercontent.com/58617251/173734439-03d1403e-8b4f-46c7-8d1d-615c1a0435d9.png"></td>
+      <td><img src="https://user-images.githubusercontent.com/58617251/173734435-c149e33a-d39e-41b7-a4b0-ed450949fa69.png"></td>
+    </tr>
+  </table>
+  
 </div>
